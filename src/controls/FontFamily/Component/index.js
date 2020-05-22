@@ -20,19 +20,8 @@ class LayoutComponent extends Component {
   };
 
   state: Object = {
-    defaultFontFamily: undefined,
+    defaultFontFamily: 'Arial',
   };
-
-  componentDidMount(): void {
-    const editorElm = document.getElementsByClassName('DraftEditor-root');
-    if (editorElm && editorElm.length > 0) {
-      const editorStyles = window.getComputedStyle(editorElm[0]);
-      const defaultFontFamily = editorStyles.getPropertyValue('font-family');
-      this.setState({ // eslint-disable-line react/no-did-mount-set-state
-        defaultFontFamily,
-      });
-    }
-  }
 
   render() {
     const { defaultFontFamily } = this.state;

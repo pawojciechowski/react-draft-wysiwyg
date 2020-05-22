@@ -29,16 +29,6 @@ function getLinkComponent(config) {
       showPopOver: false,
     };
 
-    openLink: Function = () => {
-      const { entityKey, contentState } = this.props;
-      const { url } = contentState.getEntity(entityKey).getData();
-      const linkTab = window.open(url, 'blank'); // eslint-disable-line no-undef
-      // linkTab can be null when the window failed to open.
-      if (linkTab) {
-        linkTab.focus();
-      }
-    };
-
     toggleShowPopOver: Function = () => {
       const showPopOver = !this.state.showPopOver;
       this.setState({
@@ -58,12 +48,11 @@ function getLinkComponent(config) {
         >
           <a href={url} target={targetOption}>{children}</a>
           {showPopOver && showOpenOptionOnHover ?
-            <img
+            <a href={url} target={targetOption}><img
               src={openlink}
               alt=""
-              onClick={this.openLink}
               className="rdw-link-decorator-icon"
-            />
+            /></a>
             : undefined
           }
         </span>

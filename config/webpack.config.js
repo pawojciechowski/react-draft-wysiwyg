@@ -68,6 +68,9 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      classnames$: path.resolve(__dirname, '../src/classnames.js')
+    },
     extensions: ['.js', '.json'],
   },
 };
