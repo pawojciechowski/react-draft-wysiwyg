@@ -1,12 +1,22 @@
 {
   "parser": "babel-eslint",
-  "plugins": [ "mocha" ],
-  "extends": "airbnb",
-  "globals": {
-    "describe": true,
-    "it": true
+  "env": {
+    "browser": true,
+    "es6": true
   },
+  "extends": ["airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["babel", "react"],
   "rules": {
-    "react/jsx-filename-extension": 0
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": 0,
+    "jsx-a11y/label-has-for": 0
   }
 }
